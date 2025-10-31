@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CompanyCard = ({ company }) => {
+  const navigate = useNavigate();
+  
+  const handleViewDetails = () => {
+    navigate(`/company/${company.id}`);
+  };
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200">
       <div className="flex justify-between items-start mb-4">
@@ -24,7 +30,10 @@ const CompanyCard = ({ company }) => {
           <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
           <span>{company.status}</span>
         </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+        <button 
+          onClick={handleViewDetails}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+        >
           View Details
         </button>
       </div>

@@ -141,18 +141,20 @@ export const mockCompanies = [
   }
 ];
 
+// Company types and categories
+const companyTypesList = ["SA", "SARL", "SNC", "SCS", "SCA", "SP", "SUARL", "GI", "COOP", "EI", "SPA"];
+const categories = ["Real Estate", "Technology", "Manufacturing", "Services", "Trading", "Construction", "Healthcare", "Retail", "Consulting", "Logistics"];
+
 // Generate more companies to reach 1967 total
 const generateMoreCompanies = () => {
   const companies = [...mockCompanies];
-  const companyTypes = ["SARL", "SA", "SARLAU", "SNC"];
-  const categories = ["Real Estate", "Technology", "Manufacturing", "Services", "Trading", "Construction", "Healthcare", "Retail", "Consulting", "Logistics"];
   const prefixes = ["ATLAS", "MOROCCO", "ROYAL", "IMPERIAL", "MODERN", "GLOBAL", "PREMIUM", "ELITE", "ADVANCED", "SUPERIOR"];
   const suffixes = ["SOLUTIONS", "SERVICES", "INDUSTRIES", "COMPANY", "GROUP", "ENTERPRISES", "CORPORATION", "SYSTEMS"];
 
   for (let i = 21; i <= 1967; i++) {
     const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
     const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
-    const type = companyTypes[Math.floor(Math.random() * companyTypes.length)];
+    const type = companyTypesList[Math.floor(Math.random() * companyTypesList.length)];
     const category = categories[Math.floor(Math.random() * categories.length)];
     
     companies.push({
@@ -169,5 +171,6 @@ const generateMoreCompanies = () => {
 
 export const allCompanies = generateMoreCompanies();
 
-export const companyTypes = ["All Types", "SARL", "SA", "SARLAU", "SNC"];
+// Export company types with "All Types" as the first option
+export const companyTypes = ["All Types", ...companyTypesList];
 export const companyCategories = ["All Categories", "Real Estate", "Technology", "Manufacturing", "Services", "Trading", "Construction", "Healthcare", "Retail", "Consulting", "Logistics", "Environment", "Design", "Hospitality"];
